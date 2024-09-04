@@ -1,4 +1,5 @@
 <?php 
+    // Connecting to database
     $host = 'localhost';
     $database_name = "classroom_management";
     $database_user = "root";
@@ -16,16 +17,13 @@
     // Delete student name from database
 
     // SQL Command (Recipe)
-    $sql = "DELETE FROM students where id = :id"; //:name where : acts as a placeholder, haven't used the variable yet.
-
+    $sql = "DELETE FROM students where id = :id";
     // Prepare SQL query (Prepare Ingredients)
     $query = $database->prepare($sql);
-
     // Execute SQL query (Cook)
     $query->execute([
         'id' => $student_id
     ]);
-
     // Redirect user back to index.php after the process
     header("Location: index.php");
     exit;
